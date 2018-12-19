@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "start": "parcel index.html --open"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^0.14.1",
+    "@tensorflow/tfjs-vis": "^0.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "babel-preset-env": "^1.7.0",
+    "parcel-bundler": "^1.10.3"
+  }
+}
