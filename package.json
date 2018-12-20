@@ -4,7 +4,7 @@
   },
   "dependencies": {
     "@tensorflow/tfjs": "^0.14.1",
-    "@tensorflow/tfjs-vis": "^0.4.0"
+    "vega-embed": "^3.26.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
