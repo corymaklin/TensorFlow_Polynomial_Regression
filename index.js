@@ -24,18 +24,17 @@ function loss(preds, ys) {
   return preds.sub(ys).square().mean();
 }
 
-async function train(xs, ys, num) {
+function train(xs, ys, num) {
   for(let i=0; i<num; i++) {
     optimizer.minimize(() => {
       const pred = predict(xs);
       return loss(pred, ys);
     });
     console.log(`Epoch ${i} a: ${a.dataSync()[0]}, b: ${b.dataSync()[0]}, c: ${c.dataSync()[0]}, d: ${d.dataSync()[0]}`)
-    await tf.nextFrame();
   }
 }
 
-async function main() {
+document.getElementById('train').addEventListener('click', () => {
   const realCoefficients = {
     a: -.8,
     b: .3,
@@ -45,11 +44,7 @@ async function main() {
   console.log(`Initial values a: ${a.dataSync()[0]}, b: ${b.dataSync()[0]}, c: ${c.dataSync()[0]}, d: ${d.dataSync()[0]}`)
 
   const { xs, ys } = generateData(50, realCoefficients);
-  await train(xs, ys, num);
+  train(xs, ys, num);
 
   plotDataAndPredictions(document.querySelector('div'), xs, ys, predict(xs));
-}
-
-document.getElementById('train').addEventListener('click', () => {
-  main();
 });
